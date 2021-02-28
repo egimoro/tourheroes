@@ -1,1 +1,9 @@
-<p>dashboard works!</p>
+<h2>Top Heroes</h2>
+<div class="hero-menu">
+    <a *ngFor='let hero of heroes'
+    routerLink='/heroes/{{hero.id}}'>
+    {{hero.name}}
+        
+    </a>
+
+</div>

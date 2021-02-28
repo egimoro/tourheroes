@@ -52,8 +52,7 @@ def getHero(request, pk):
         status=status.HTTP_204_NO_CONTENT)
     
     elif request.method == 'PUT':
-        hero_data = JSONParser().parse(request)
-        hero_serializer = HeroSerializer(hero, data=hero_data)
+        hero_serializer = HeroSerializer(hero, data=request.data)
         if hero_serializer.is_valid():
             hero_serializer.save()
             return JsonResponse(hero_serializer.data)

@@ -29,10 +29,13 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Observable<any>{
-    return this.http.put(this.heroesUrl, hero, this.httpOptions);
+    return this.http.put(`${this.heroesUrl}/${hero.id}`, hero, this.httpOptions);
   }
 
- deleteHero(id: any): Observable<any>{
-   return this.http.delete(`${this.heroesUrl}/${id}`) 
- }
+  deleteHero(hero: Hero | number): Observable<Hero>{
+    const id = typeof hero === 'number' ? hero: hero.id
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.delete<Hero>(url, this.httpOptions);
+  }
 }

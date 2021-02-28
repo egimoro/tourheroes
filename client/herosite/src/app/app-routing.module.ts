@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { from } from 'rxjs';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/heroes', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'heroes', component: HeroesComponent},
   {path: 'heroes/:id', component: HeroDetailComponent},
 ];
